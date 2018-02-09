@@ -122,7 +122,7 @@ quickplot(D)
 
 
 #==============================================================================
-# Manipulating geometry 4 - Chaining commands
+# Manipulating geometry 4 - Chaining commandsx
 #==============================================================================
 # Many of the functions in Device return the object they manipulate.  We can use
 # this to chain commands in a single line. For instance this:
@@ -319,7 +319,7 @@ C3 = Device(complicated_waveguide, config = cwg_parameters, width = 500, rotatio
 quickplot(C3)
 
 
-# The most useful implementation of this is to keep a standard set of 
+# The most useful implementation of this is to keep a standard set of a
 # parameters and then override certain parameters each iteration of the for 
 # loop. Say we want to use our standard cwg_parameters but change the height
 #  each time:

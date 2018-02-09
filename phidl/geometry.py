@@ -1,4 +1,4 @@
-from __future__ import division, print_function, absolute_import
+qfrom __future__ import division, print_function, absolute_import
 import numpy as np
 import itertools
 from numpy import sqrt, pi, cos, sin, log, exp, sinh, mod
@@ -292,7 +292,7 @@ def flagpole(size = (4,2), stub_size = (2,1), shape = 'p', taper_type = 'straigh
     elif shape == 'D':
         f[1], p[1] = -size[1], -stub_size[1]
         f[0], p[0] = -size[0], -stub_size[0]
-        orientation = 90
+        orientation = 90x
     xpts = [0, 0, f[0], f[0], p[0], p[0], 0]
     ypts = [0, f[1], f[1], 0, 0, -p[1], -p[1]]
     
@@ -1469,7 +1469,6 @@ def invert(elements, border = 10, precision = 0.001, layer = 0):
 
 
 
-
 #==============================================================================
 #
 # Photonics
@@ -1530,14 +1529,16 @@ def grating(num_periods = 20, period = 0.75, fill_factor = 0.5, width_grating = 
             partetch_overhang = 5
             # make the etched areas (opposite to teeth)
             for i in range(num_periods):
-                cgrating = G.add_ref(compass(size=[period*(1-fill_factor),width_grating+partetch_overhang*2]), layer = 1)
+                cgrating = G.add_ref(compass(size=[period*(1-fill_factor),width_grating+partetch_overhang*2], layer = 1))
                 cgrating.x+=i*period
                         # define the port of the grating
             p = G.add_port(port = cgrating.ports['E'], name = 1)
             p.midpoint=p.midpoint+np.array([(1-fill_factor)*period,0])
                 
         #draw the deep etched square around the grating
-            deepbox = G.add_ref(compass(size=[num_periods*period, width_grating]), layer=0)    
+            deepbox = G.add_ref(compass(size=[num_periods*period/2, width_grating], layer=0)) 
+            deepbox.center = cgrating.center
+            deepbox.xmax = cgrating.xmax
     return G
 
 #==============================================================================
